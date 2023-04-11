@@ -1,0 +1,85 @@
+PerMedCoE=/$PWD filter="*.rb *.rake Rakefile *.rdoc *.R *.sh *.js *.haml *.sass *.txt *.conf" {
+ workflow.rb
+ bin=bin filter="*"{
+ }
+ lib=lib {
+  PerMedCoE=PerMedCoE{
+   tasks=tasks{
+   }
+  }
+ }
+ test=test {
+  test_helper.rb
+ }
+ data=data filter="*"{
+ }
+ modules=modules filter="*" {
+  covid-19-workflow=covid-19-workflow{
+   LICENSE
+   README.md
+   Resources=Resources{
+    data=data{
+     epithelial_cell_2.bnd
+     epithelial_cell_2.cfg
+     inputs.txt
+     metadata.tsv
+     metadata_10x.tsv
+     metadata_20x.tsv
+     metadata_2x.tsv
+     metadata_4x.tsv
+     metadata_6x.tsv
+     metadata_8x.tsv
+     metadata_clean.tsv
+     metadata_small.tsv
+     metadata_small_local.tsv
+     outputs.txt
+    }
+   }
+   Workflow=Workflow{
+    PyCOMPSs=PyCOMPSs{
+     0_prepare_dataset.sh
+     GSE145926_RAW.tar
+     README.md
+     a_launch.sh
+     a_run.sh
+     b_1_launch.sh
+     b_1_run.sh
+     b_2_launch.sh
+     b_2_launch_per_patient.sh
+     b_2_run.sh
+     b_2_run_per_patient.sh
+     b_3_launch.sh
+     b_3_run.sh
+     clean.sh
+     src=src{
+      covid19_pilot.py
+      helpers.py
+      parallel_meta_analysis.py
+      utils.py
+     }
+    }
+    NextFlow=NextFlow{
+     covid19_pilot.nf
+     launch.sh
+    }
+    SnakeMake=SnakeMake{
+     Snakefile
+     config.yml
+     launch.sh
+     run.sh
+     split.sh
+    }
+    Rbbt=Rbbt{
+     workflow.rb
+     lib=lib{
+      rbbt=rbbt{
+       sources=sources{
+        Covid19.rb
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,3 @@
+[submodule "modules/BuildingBlocks"]
+	path = modules/BuildingBlocks
+	url = https://github.com/PerMedCoE/BuildingBlocks.git
