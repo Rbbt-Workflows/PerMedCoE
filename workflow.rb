@@ -40,7 +40,7 @@ module PerMedCoE
     end
 
     general_options = IndiferentHash.setup({})
-    options["tmpdir"] ||= file('tmp')
+    options["tmpdir"] ||= file('tmpdir')
 
     general_options["debug"] = true if config(:debug, :permedcoe, :PerMedCoE, :default => 'false') == 'true'
 
