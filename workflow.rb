@@ -95,6 +95,7 @@ module PerMedCoE
 
       new = IndiferentHash.setup({})
       input_hash.each do |k,v|
+        v = v.path if Step === v
         v = v.find if Path === v
         new[k] = v
       end
