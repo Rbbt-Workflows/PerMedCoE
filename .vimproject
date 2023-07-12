@@ -14,68 +14,717 @@ PerMedCoE=/$PWD filter="*.rb *.rake Rakefile *.rdoc *.R *.sh *.js *.haml *.sass 
  data=data filter="*"{
  }
  modules=modules filter="*" {
-  covid-19-workflow=covid-19-workflow{
+  BuildingBlocks=BuildingBlocks{
    LICENSE
    README.md
-   Resources=Resources{
-    data=data{
-     epithelial_cell_2.bnd
-     epithelial_cell_2.cfg
-     inputs.txt
-     metadata.tsv
-     metadata_10x.tsv
-     metadata_20x.tsv
-     metadata_2x.tsv
-     metadata_4x.tsv
-     metadata_6x.tsv
-     metadata_8x.tsv
-     metadata_clean.tsv
-     metadata_small.tsv
-     metadata_small_local.tsv
-     outputs.txt
-    }
-   }
-   Workflow=Workflow{
-    PyCOMPSs=PyCOMPSs{
-     0_prepare_dataset.sh
-     GSE145926_RAW.tar
-     README.md
-     a_launch.sh
-     a_run.sh
-     b_1_launch.sh
-     b_1_run.sh
-     b_2_launch.sh
-     b_2_launch_per_patient.sh
-     b_2_run.sh
-     b_2_run_per_patient.sh
-     b_3_launch.sh
-     b_3_run.sh
-     clean.sh
-     src=src{
-      covid19_pilot.py
-      helpers.py
-      parallel_meta_analysis.py
-      utils.py
+   COBREXA=COBREXA {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     COBREXA_BB=COBREXA_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       fva.jl
+      }
      }
     }
-    NextFlow=NextFlow{
-     covid19_pilot.nf
-     launch.sh
+   }
+   Carnival=Carnival {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     Carnival_BB=Carnival_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+     }
     }
-    SnakeMake=SnakeMake{
-     Snakefile
-     config.yml
-     launch.sh
-     run.sh
-     split.sh
+   }
+   CarnivalPy=CarnivalPy {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     CarnivalPy_BB=CarnivalPy_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       carnivalpy.sh
+      }
+     }
     }
-    Rbbt=Rbbt{
-     workflow.rb
-     lib=lib{
-      rbbt=rbbt{
-       sources=sources{
-        Covid19.rb
+   }
+   Carnival_feature_merger=Carnival_feature_merger {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     Carnival_feature_merger_BB=Carnival_feature_merger_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       carnival_feature_merger.sh
+      }
+     }
+    }
+   }
+   Carnival_gex_preprocess=Carnival_gex_preprocess {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     Carnival_gex_preprocess_BB=Carnival_gex_preprocess_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       carnival_gex_preprocess.sh
+      }
+     }
+    }
+   }
+   CellNOpt=CellNOpt {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     CellNOpt_BB=CellNOpt_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+     }
+    }
+   }
+   MaBoSS=MaBoSS {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    build=build {
+     bdist.linux-x86_64=bdist.linux-x86_64 {
+     }
+     lib=lib {
+      MaBoSS_BB=MaBoSS_BB {
+       __init__.py
+       __main__.py
+       definition.json
+       definitions.py
+       main.py
+       assets=assets {
+        MaBoSS_analysis.sh
+        MaBoSS_sensitivity_analysis.sh
+        MaBoSS_analysis=MaBoSS_analysis {
+         1-4_epistasis_Stew.sh
+         Analyses_of_genetic_interactions_Stew_workflow.R
+         PlMaBoSS_2.0.pl
+         run_MaBoSS_Unix_Stew.sh
+        }
+        MaBoSS_sensitivity_analysis=MaBoSS_sensitivity_analysis {
+         sensitivity_analysis.py
+        }
        }
+      }
+     }
+    }
+    src=src {
+     MaBoSS_BB=MaBoSS_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       MaBoSS_analysis.sh
+       MaBoSS_sensitivity_analysis.sh
+       MaBoSS_analysis=MaBoSS_analysis {
+        1-4_epistasis_Stew.sh
+        Analyses_of_genetic_interactions_Stew_workflow.R
+        PlMaBoSS_2.0.pl
+        run_MaBoSS_Unix_Stew.sh
+       }
+       MaBoSS_sensitivity_analysis=MaBoSS_sensitivity_analysis {
+        sensitivity_analysis.py
+       }
+      }
+     }
+     MaBoSS_BB.egg-info=MaBoSS_BB.egg-info {
+      PKG-INFO
+      SOURCES.txt
+      dependency_links.txt
+      entry_points.txt
+      requires.txt
+      top_level.txt
+     }
+    }
+   }
+   PhysiBoSS=PhysiBoSS {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     PhysiBoSS_BB=PhysiBoSS_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       PhysiBoSS.sh
+       PhysiBoSS_model.sh
+      }
+     }
+    }
+   }
+   PhysiBoSS_Invasion=PhysiBoSS_Invasion {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     PhysiBoSS_Invasion_BB=PhysiBoSS_Invasion_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       PhysiBoSS_Invasion.sh
+      }
+     }
+    }
+   }
+   Resources=Resources {
+    containers=containers {
+     README.md
+     container.sh
+     carnivalpy=carnivalpy {
+      Dockerfile
+      env.lock
+      env.yml
+      carnivalpy=carnivalpy {
+       carnival.py
+       export.R
+       examples=examples {
+        ex1=ex1 {
+         measurements.csv
+         network.csv
+         perturbations.csv
+         solution.csv
+        }
+       }
+      }
+      example=example {
+       measurements.csv
+       network.csv
+       perturbations.csv
+      }
+      scripts=scripts {
+       carnivalpy.sh
+       export.R
+       feature_merge.py
+      }
+     }
+     from_species_to_maboss_model=from_species_to_maboss_model {
+      Dockerfile
+      env.lock
+      env.yml
+      scripts=scripts {
+       download_database.py
+      }
+     }
+     invasion_analysis=invasion_analysis {
+      Dockerfile
+      requirements-freeze.txt
+      requirements.txt
+     }
+     maboss=maboss {
+      Dockerfile
+      requirements-freeze.txt
+      requirements.txt
+      jar=jar {
+       BiNoM.jar
+       VDAOEngine.jar
+      }
+     }
+     mambaforge=mambaforge {
+      Dockerfile
+     }
+     meta_analysis=meta_analysis {
+      Dockerfile
+      install.R
+     }
+     ml_jax=ml_jax {
+      Dockerfile
+      env.lock
+      env.yml
+      scripts=scripts {
+       ml.py
+      }
+     }
+     physicell_covid19=physicell_covid19 {
+      Dockerfile
+      install.R
+     }
+     print_results=print_results {
+      Dockerfile
+      requirements-freeze.txt
+      requirements.txt
+     }
+     r-base=r-base {
+      Dockerfile
+     }
+     r-base_mambaforge=r-base_mambaforge {
+      Dockerfile
+     }
+     single_cell=single_cell {
+      Dockerfile
+      install.R
+     }
+     toolset=toolset {
+      Dockerfile
+      install.R
+      scripts=scripts {
+       carnivalr.R
+       decoupler.R
+       example.txt
+       export.R
+       export_carnival.R
+       normalize.R
+       omnipath.R
+       preprocess.R
+       progeny.R
+       tf_enrichment.R
+       examples=examples {
+        export=export {
+         inputs.csv
+         measurements.csv
+         sif.csv
+        }
+       }
+      }
+     }
+    }
+    images=images {
+     build_all.sh
+     build_all_sandbox.sh
+     cobrexa.jl_latest.sh
+     download_all.sh
+     from_species_to_maboss_model.singularity
+     invasion_analysis.singularity
+     maboss.singularity
+     maboss_sensitivity.singularity
+     meta_analysis.singularity
+     physicell_covid19.singularity
+     physicell_invasion.singularity
+     print_results.singularity
+     single_cell.singularity
+    }
+   }
+   build_model_from_species=build_model_from_species {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     build_model_from_species_BB=build_model_from_species_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       FromSpeciesToMaBoSSModel.sh
+       build_model_from_species=build_model_from_species {
+        functions.py
+        pipeline.py
+        pypath_functions.py
+       }
+      }
+     }
+    }
+   }
+   export_solver_hdf5=export_solver_hdf5 {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     export_solver_hdf5_BB=export_solver_hdf5_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       export_solver_hdf5.sh
+      }
+     }
+    }
+   }
+   invasion_analysis=invasion_analysis {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     invasion_analysis_BB=invasion_analysis_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       InvasionAnalysis.sh
+       invasion_analysis=invasion_analysis {
+        collect_data.py
+        utils.py
+       }
+      }
+     }
+    }
+   }
+   meta_analysis=meta_analysis {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     meta_analysis_BB=meta_analysis_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       meta_analysis.R
+       meta_analysis.sh
+       physi_eval_utils.R
+      }
+     }
+    }
+   }
+   ml_jax_drug_prediction=ml_jax_drug_prediction {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     ml_jax_drug_prediction_BB=ml_jax_drug_prediction_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       ml_jax_drug_prediction.sh
+      }
+     }
+    }
+   }
+   omnipath=omnipath {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     omnipath_BB=omnipath_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       omnipath.sh
+      }
+     }
+    }
+   }
+   personalize_patient=personalize_patient {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    build=build {
+     bdist.linux-x86_64=bdist.linux-x86_64 {
+     }
+     lib=lib {
+      personalize_patient_BB=personalize_patient_BB {
+       __init__.py
+       __main__.py
+       definition.json
+       definitions.py
+       main.py
+       assets=assets {
+        personalize_cellline.R
+        personalize_cellline.sh
+        personalize_patient.R
+        personalize_patient.sh
+        profile.R
+       }
+      }
+     }
+    }
+    src=src {
+     personalize_patient_BB=personalize_patient_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       personalize_cellline.R
+       personalize_cellline.sh
+       personalize_patient.R
+       personalize_patient.sh
+       profile.R
+      }
+     }
+     personalize_patient_BB.egg-info=personalize_patient_BB.egg-info {
+      PKG-INFO
+      SOURCES.txt
+      dependency_links.txt
+      entry_points.txt
+      requires.txt
+      top_level.txt
+     }
+    }
+   }
+   print_drug_results=print_drug_results {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     print_drug_results_BB=print_drug_results_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       print_result_drugs.py
+       print_result_drugs.sh
+      }
+     }
+    }
+   }
+   progeny=progeny {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     progeny_BB=progeny_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       progeny.sh
+      }
+     }
+    }
+   }
+   single_cell_processing=single_cell_processing {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     single_cell_processing_BB=single_cell_processing_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       single_cell_processing.R
+       single_cell_processing.sh
+       single_cell_processing_individual.R
+       single_cell_processing_individual.sh
+      }
+     }
+    }
+   }
+   tf_enrichment=tf_enrichment {
+    LICENSE.txt
+    README.md
+    build.sh
+    clean.sh
+    install.sh
+    install_sc.sh
+    install_sc_nopip.sh
+    pyproject.toml
+    setup.cfg
+    setup.py
+    uninstall.sh
+    src=src {
+     tf_enrichment_BB=tf_enrichment_BB {
+      __init__.py
+      __main__.py
+      definition.json
+      definitions.py
+      main.py
+      assets=assets {
+       tf_enrichment.sh
       }
      }
     }

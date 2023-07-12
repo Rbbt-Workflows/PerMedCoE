@@ -83,7 +83,8 @@ module PerMedCoE
       input_info.each do |name,p|
         format, input_description = p
         format = 'string' if %w(str).include? format
-        format = 'string' if %w(file).include? format
+        format = 'path' if %w(file).include? format
+        format = 'path' if %w(folder).include? format
         format = 'integer' if %w(int).include? format
         input name, format, input_description
       end
@@ -91,6 +92,13 @@ module PerMedCoE
 
     task bb => :array do
       input_hash = inputs.to_hash
+
+      new = IndiferentHash.setup({})
+      input_hash.each do |k,v|
+        v = v.find if Path === v
+        new[k] = v
+      end
+      input_hash = new
 
       parallel_key = input_hash.keys.select{|k| %w(parallelize parallel).include? k.to_s }.first
 
